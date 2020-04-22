@@ -1,0 +1,21 @@
+%table{:style => "width:100%;"}
+  %thead
+    %tr
+      %th First Name
+      %th Last Name
+      %th Action
+  %tbody  
+    -@users.each do|user|
+      %tr
+        %td=user.first_name
+        %td=user.last_name
+        %td
+          - if current_user.following?(user)
+            = link_to 'Unfollow', unfollow_user_path(user)
+          -else
+            = link_to 'Follow', follow_user_path(user)
+:css
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  } 

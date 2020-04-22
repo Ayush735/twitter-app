@@ -1,0 +1,18 @@
+%p
+  = link_to 'Users', users_path
+%table{:style => "width:100%;"}
+  %thead
+    %tr
+      %th #
+      %th Tweets
+      / %th Age
+  %tbody  
+    -@tweets.each_with_index do|tweet, index|
+      %tr
+        %td= index+1
+        %td= tweet.content
+:css
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }    
